@@ -10,7 +10,9 @@
           <%= link_to 'Home', root_path, class: 'nav-link active', 'aria-content'=>'page'%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add restraunt</a>
+          <%= link_to restraunt_path, class: 'nav-link' do%>
+            Add Restraunt
+          <%end%>
         </li>
         <li class="nav-item">
             <%= link_to login_path, class:"btn btn-primary" do%>

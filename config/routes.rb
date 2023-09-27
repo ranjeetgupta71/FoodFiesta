@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/login', to: 'login#index'
   get '/signup', to: 'signup#index'
+  get '/restraunt', to: 'restraunt#index'
 end
