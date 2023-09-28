@@ -1,1 +1,5 @@
-<h1><%= @message %></h1>
+<% if @user %>
+  You are logged in as <%= @user.email %>
+<% else %>
+  You are not logged in
+<% end %>
