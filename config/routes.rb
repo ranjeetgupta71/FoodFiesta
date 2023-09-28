@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'registrations#new'
   post '/signup', to: 'registrations#create'
+  get '/signin', to: 'signin#new'
+  post '/signin', to: 'signin#create'
+  delete '/signout', to: 'signin#destroy'
 
   get '/restraunt', to: 'restraunt#index'
 
