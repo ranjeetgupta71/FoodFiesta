@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
   get '/login', to: 'login#index'
-  get '/signup', to: 'signup#index'
+  
+  
+  get '/signup', to: 'registrations#new'
+  post '/signup', to: 'registrations#create'
+
   get '/restraunt', to: 'restraunt#index'
+
 end
