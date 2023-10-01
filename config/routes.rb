@@ -6,13 +6,16 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/login', to: 'login#index'
   
-  
   get '/signup', to: 'registrations#new'
   post '/signup', to: 'registrations#create'
+
   get '/signin', to: 'signin#new'
   post '/signin', to: 'signin#create'
-  delete '/signout', to: 'signin#destroy'
+  delete '/signin', to: 'signin#destroy'
+  # delete '/signout', to: 'signin#destroy', as: 'signout'
 
-  get '/restraunt', to: 'restraunt#index'
+
+  get '/restaurants', to: 'restaurants#index'
+  # resources :restaurants, only: [:index]
 
 end

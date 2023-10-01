@@ -10,20 +10,29 @@
           <%= link_to 'Home', root_path, class: 'nav-link active', 'aria-content'=>'page'%>
         </li>
         <li class="nav-item">
-          <%= link_to restraunt_path, class: 'nav-link' do%>
+          <%= link_to restaurants_path, class: 'nav-link' do%>
             Add Restraunt
           <%end%>
         </li>
         <li class="nav-item">
-            <%= link_to signin_path, class:"btn btn-primary" do%>
-              Login
-            <% end %>
+            <% if session[:current_user_id] %>
+            
+            <li><%= link_to "Sign out", signin_path, data: {
+              turbo_method: :delete,
+            }, class: 'btn btn-primary' %></li>
+            <%else%>
+              <%= link_to signin_path, class:"btn btn-primary" do%>
+                Sign in
+              <% end %>
+            <%end%>
         </li>
-        <li class="nav-item" style="margin-left: 10px;">
-          <%= link_to signup_path, class: 'btn btn-primary' do%>
-            SignUp
-          <%end%>
-        </li>
+        <% if !session[:current_user_id]%>
+          <li class="nav-item" style="margin-left: 10px;">
+            <%= link_to signup_path, class: 'btn btn-primary' do%>
+              SignUp
+            <%end%>
+          </li>
+        <%end%>
       </ul>
     </div>
   </div>

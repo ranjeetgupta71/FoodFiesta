@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# db/seeds.rb
+
+# Create 20 restaurants
+20.times do |i|
+  Restaurant.create(name: "Restaurant #{i + 1}", address: "Address #{i + 1}")
+end
