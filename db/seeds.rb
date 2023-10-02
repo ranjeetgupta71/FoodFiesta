@@ -12,3 +12,15 @@
 20.times do |i|
   Restaurant.create(name: "Restaurant #{i + 1}", address: "Address #{i + 1}")
 end
+
+
+# db/seeds.rb
+
+# ... (your existing seed data)
+
+# Create some sample foods
+restaurant = Restaurant.first
+
+10.times do |i|
+  restaurant.foods.create(name: "Food #{i + 1}", description: "Description for Food #{i + 1}", price: rand(5.0..20.0))
+end

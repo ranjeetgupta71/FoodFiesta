@@ -1,0 +1,19 @@
+
+<div class="row">
+  <h1><%= @restaurant.name %></h1>
+  <h2>Food Items</h2>
+    <% @foods.each do |food| %>
+      <div class="col-md-4">
+      <a href="/restaurants/<%= @restaurant.id %>/<%= food.id%>">
+        <div class="card mb-3" style="width: 18rem;">
+          <img src="/assets/food.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><strong><%= food.name %></strong></h5>
+            <p class="card-text"><%= food.description%></p>
+            <p class="card-text"><%= number_to_currency(food.price)%></p>
+          </div>
+        </div>
+      </a>
+      </div>
+    <% end %>
+  </div>
