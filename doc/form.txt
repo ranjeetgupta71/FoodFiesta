@@ -1,0 +1,4 @@
+
+<%= form_with model: [@restaurant, @food, @food.comments.build] do |form| %>
+
+<%= form_with url: "/restaurants/#{@food.restaurant.id}/foods/#{@food.id}/comments" do |form| %>

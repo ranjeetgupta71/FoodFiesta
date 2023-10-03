@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
   get '/login', to: 'login#index'
-  
+
   get '/signup', to: 'registrations#new'
   post '/signup', to: 'registrations#create'
 
@@ -20,11 +20,11 @@ Rails.application.routes.draw do
 
 
   resources :restaurants do
-    resources :foods
+    resources :foods do
+      resources :comments
+    end
   end
 
-  
-  
   # get "/articles/:id", to: "articles#show"
   # resources :restaurants, only: [:index]
 

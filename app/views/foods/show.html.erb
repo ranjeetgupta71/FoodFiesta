@@ -1,3 +1,33 @@
 <h1><%= @food.name %></h1>
 <p><%= @food.description %></p>
 <p>Price: <%= @food.price %></p>
+
+
+
+<h2>Comments</h2>
+<% @food.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with url: restaurant_food_comments_path(@restaurant, @food) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
