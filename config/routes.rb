@@ -17,6 +17,13 @@ Rails.application.routes.draw do
 
   get '/restaurants', to: 'restaurants#index'
   get '/restaurants/:id', to: 'restaurants#show'
+
+
+  resources :restaurants do
+    resources :foods
+  end
+
+  
   
   # get "/articles/:id", to: "articles#show"
   # resources :restaurants, only: [:index]
