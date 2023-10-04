@@ -2,3 +2,39 @@
 <%= form_with model: [@restaurant, @food, @food.comments.build] do |form| %>
 
 <%= form_with url: "/restaurants/#{@food.restaurant.id}/foods/#{@food.id}/comments" do |form| %>
+
+
+
+<form action="/restaurants" method="POST">
+  <p>
+    Name: <input type="text" name="name">
+  </p>
+  <p>
+    Address: <textarea name="address" />
+  </p>
+</form>
+
+<%= form_with model: @restaurant do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
+<form action="/restaurants" method="POST">
+  <p>
+    Name: <input type="text" name="restaurant[name]">
+  </p>
+  <p>
+    Address: <textarea name="restaurant[address]" />
+  </p>
+</form>

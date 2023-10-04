@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Add Restaurant</h1>
 
-<%= form_with url: restaurants_path  do |form| %>
+<%= form_with model: @restaurant do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -14,8 +14,6 @@
     <%= form.submit %>
   </p>
 <% end %>
-
-
 
   <h1>List of Restaurants</h1>
   <div class="row">

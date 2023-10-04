@@ -3,9 +3,11 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @restaurant = Restaurant.new
   end
 
   def new
+    @restaurant = Restaurant.new
   end
 
   def show
@@ -14,7 +16,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    binding.pry
     @restaurant = Restaurant.create(restaurant_params)
     redirect_to @restaurant
   end
@@ -22,7 +23,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.permit(:name, :address)
+    params.require(:restaurant).permit(:name, :address)
   end
 
   # def show
