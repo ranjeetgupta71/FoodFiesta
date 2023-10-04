@@ -14,11 +14,6 @@ Rails.application.routes.draw do
   delete '/signin', to: 'signin#destroy'
   # delete '/signout', to: 'signin#destroy', as: 'signout'
 
-
-  get '/restaurants', to: 'restaurants#index'
-  get '/restaurants/:id', to: 'restaurants#show'
-
-
   resources :restaurants do
     resources :foods do
       resources :comments
