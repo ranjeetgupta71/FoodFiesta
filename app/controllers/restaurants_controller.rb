@@ -20,6 +20,9 @@ class RestaurantsController < ApplicationController
     redirect_to @restaurant
   end
 
+  def edit
+  end
+
   private
 
   def restaurant_params
