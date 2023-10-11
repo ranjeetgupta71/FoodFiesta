@@ -23,6 +23,25 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    begin
+      puts @restaurant
+      @restaurant.destroy
+      flash[:notice] = 'Restaurant was successfully destroyed.'
+    rescue => e
+      flash[:error] = "Error destroying restaurant: #{e.message}"
+    end
+
+  puts "After destroy, before redirect"
+  puts @restaurant.inspect
+
+    redirect_to restaurants_path, notice: 'Restaurant was successfully deleted.'
+  end
+
+
+
+
   private
 
   def restaurant_params

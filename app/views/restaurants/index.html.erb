@@ -22,10 +22,24 @@
       <a href="/restaurants/<%= restaurant.id %>">
         <div class="card mb-3" style="width: 18rem;">
           <img src="/assets/food.jpeg" class="card-img-top" alt="...">
-          <div class="card-body">
+          <div style="display: flex; flex-direction: row;">
+            <div class="card-body">
+              <h5 class="card-title"><%= restaurant.name %></h5>
+              <p class="card-text"><%= restaurant.address %></p>
+            </div>
 
-            <h5 class="card-title"><%= restaurant.name %></h5>
-            <p class="card-text"><%= restaurant.address %></p>
+
+            <%= link_to "Destroy", restaurant_path(restaurant), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+
+
+            <a href ="/restaurants">
+              <img src="/assets/edit.svg" style="margin-top:16px; margin-left:4px;"  height="20px" width="20px" alt="...">
+            </a>
+
           </div>
         </div>
       </a>
