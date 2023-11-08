@@ -39,7 +39,9 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path, notice: 'Restaurant was successfully deleted.'
   end
 
-
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
 
 
   private
@@ -48,7 +50,5 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :address)
   end
 
-  # def show
-  #   @article = Article.find(params[:id])
-  # end
+
 end

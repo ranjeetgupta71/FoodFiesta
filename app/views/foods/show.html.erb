@@ -1,12 +1,7 @@
 <h1><%= @food.name %></h1>
 <p><%= @food.description %></p>
 <p>Price: <%= @food.price %></p>
-<a href ="/restaurants">
-              <img src="/assets/delete-button.svg" style="margin-top:16px;"  height="20px" width="20px" alt="...">
-            </a>
-            <a href ="/restaurants">
-              <img src="/assets/edit.svg" style="margin-top:16px; margin-left:4px;"  height="20px" width="20px" alt="...">
-            </a>
+
 
 
 
@@ -21,6 +16,12 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+
+  <%= link_to "Destroy", restaurant_food_comment_path(@restaurant,@food,comment), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
 <% end %>
 
 <h2>Add a comment:</h2>
